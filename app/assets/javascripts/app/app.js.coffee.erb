@@ -1,0 +1,22 @@
+angular.module('simpleNotes', [ 'ngRoute' ])
+  .config(($routeProvider, $locationProvider) ->
+    $routeProvider
+      .when('/',
+        controller: 'PagesController'
+        templateUrl: '<%= asset_path("pages") %>')
+      .otherwise redirectTo: '/'
+    $locationProvider.html5Mode {enabled: true, requireBase: false}
+  ).controller('PagesController', ($scope) ->
+    $scope.pages = [
+      {
+        id: '1'
+        title: 'Ruby'
+        author: 'Janne'
+      }
+      {
+        id: '2'
+        title: 'Rails'
+        author: 'Janne'
+      }
+    ]
+  )
