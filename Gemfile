@@ -60,7 +60,10 @@ group :development do
   gem 'quiet_assets'
 
   # Follow rails best practises
-  gem "rails_best_practices"
+  gem "rails_best_practices", require: false
+
+  # Follow rubocop conventions
+  gem 'rubocop', require: false
 end
 
 
