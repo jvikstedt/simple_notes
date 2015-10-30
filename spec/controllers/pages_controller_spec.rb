@@ -57,4 +57,22 @@ RSpec.describe PagesController, type: :controller do
       expect(@page.reload.body).to be_nil
     end
   end
+
+  describe 'DELETE #destroy' do
+    before(:each) do
+      @page = create(:page)
+    end
+
+    it 'deletes page from database' do
+      expect do
+        delete :destroy, format: :json, id: @page
+      end.to change { Page.all.size }.by(-1)
+      expect(Page.find_by_id(@page.id)).to be_nil
+    end
+
+    it 'returns deleted page as json' do
+      delete :destroy, format: :json, id: @page
+      expect(response.body).to eq(@page.to_json.to_s)
+    end
+  end
 end

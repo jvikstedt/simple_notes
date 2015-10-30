@@ -26,6 +26,13 @@ class PagesController < ApplicationController
     end
   end
 
+  def destroy
+    page = Page.find(params[:id])
+    page.destroy
+
+    render json: page, status: :ok
+  end
+
   private
 
   def page_params
