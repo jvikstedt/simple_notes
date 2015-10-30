@@ -10,5 +10,7 @@ html lang="en" ng-app="simpleNotes"
   body
     .container
       h1 = SimpleNotes
-      | {{ 1+1 }}
+      div ng-controller="PagesController"
+        div ng-repeat="page in pages"
+          | {{page.title}}
     = javascript_include_tag "application"
