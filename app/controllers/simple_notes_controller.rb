@@ -1,5 +1,5 @@
 class SimpleNotesController < ApplicationController
   def index
-    render layout: 'angular'
+    render text: '', layout: 'angular'
   end
 end
