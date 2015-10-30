@@ -51,5 +51,10 @@ RSpec.describe PagesController, type: :controller do
       patch :update, format: :json, id: @page, page: attributes_for(:page, title: nil)
       expect(response).to have_http_status(:unprocessable_entity)
     end
+
+    it 'does not change data in database when invalid data' do
+      patch :update, format: :json, id: @page, page: attributes_for(:page, title: nil, body: 'test')
+      expect(@page.reload.body).to be_nil
+    end
   end
 end
