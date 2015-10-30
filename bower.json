@@ -1,0 +1,23 @@
+{
+  "name": "simple_notes",
+  "homepage": "https://github.com/jvikstedt/simple_notes",
+  "authors": [
+    "Janne Vikstedt <janne.vikstedt@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
