@@ -58,6 +58,9 @@ group :development do
 
   # quiet_assets to clean logs
   gem 'quiet_assets'
+
+  # Follow rails best practises
+  gem "rails_best_practices"
 end
 
 
