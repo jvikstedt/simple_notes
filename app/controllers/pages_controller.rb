@@ -6,6 +6,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def show
+    page = Page.find(params[:id])
+
+    render json: page
+  end
+
   def create
     page = Page.new(page_params)
 

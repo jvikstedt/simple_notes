@@ -9,6 +9,14 @@ RSpec.describe PagesController, type: :controller do
     end
   end
 
+  describe 'GET #show' do
+    it 'returns json of a page' do
+      page = create(:page)
+      get :show, format: :json, id: page
+      expect(response.body).to eq(page.to_json.to_s)
+    end
+  end
+
   describe 'POST #create' do
     it 'returns status created with valid parameters' do
       post :create, format: :json, page: attributes_for(:page)
