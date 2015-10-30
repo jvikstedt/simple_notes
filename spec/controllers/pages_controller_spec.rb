@@ -31,4 +31,25 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
+
+  describe 'PATCH #update' do
+    before(:each) do
+      @page = create(:page)
+    end
+
+    it 'changes values in database properly' do
+      patch :update, format: :json, id: @page, page: attributes_for(:page, title: 'Rails')
+      expect(@page.reload.title).to eq('Rails')
+    end
+
+    it 'returns changed page as json' do
+      patch :update, format: :json, id: @page, page: attributes_for(:page, title: 'Rails')
+      expect(JSON.parse(response.body)['title']).to eq('Rails')
+    end
+
+    it 'returns unprocessable_entity if invalid data' do
+      patch :update, format: :json, id: @page, page: attributes_for(:page, title: nil)
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
 end

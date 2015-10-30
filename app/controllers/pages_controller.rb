@@ -16,6 +16,16 @@ class PagesController < ApplicationController
     end
   end
 
+  def update
+    page = Page.find(params[:id])
+
+    if page.update_attributes(page_params)
+      render json: page, status: :ok
+    else
+      render json: page.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def page_params
