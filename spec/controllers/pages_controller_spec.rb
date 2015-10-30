@@ -15,6 +15,11 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to have_http_status(:created)
     end
 
+    it 'returns json of created page' do
+      post :create, format: :json, page: attributes_for(:page)
+      expect(JSON.parse(response.body)['id']).to be_kind_of(Fixnum)
+    end
+
     it 'creates pages when called with valid parameters' do
       expect do
         post :create, format: :json, page: attributes_for(:page)

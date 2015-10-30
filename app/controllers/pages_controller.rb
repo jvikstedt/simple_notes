@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     page = Page.new(page_params)
 
     if page.save
-      head :created
+      render json: page, status: :created
     else
       render json: page.errors, status: :unprocessable_entity
     end
