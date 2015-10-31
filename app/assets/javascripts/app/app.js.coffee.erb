@@ -4,6 +4,9 @@ angular.module('simpleNotes', [ 'ngRoute', 'simpleNotes.controllers', 'simpleNot
       .when('/page/:id',
         controller: 'PageController'
         templateUrl: '<%= asset_path("page") %>')
+      .when('/login',
+        controller: 'LoginController',
+        templateUrl: '<%= asset_path("login") %>')
       .when('/',
         controller: 'PagesController'
         templateUrl: '<%= asset_path("pages") %>')

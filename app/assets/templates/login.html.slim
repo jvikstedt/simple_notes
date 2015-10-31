@@ -1,0 +1,18 @@
+h1 Login
+form name="login_form" role="form" ng-submit="submitLogin()"
+  input(type="email" name="login.email" ng-model="login.email" required)
+  input(type="password" name="login.password" ng-model="login.password" required)
+  button type="submit" Login
+
+  div ng-if="login.errors"
+    h2 | {{ login.errors }}
+
+
+h1 Signup
+form name="signup_form" role="form" ng-submit="submitSignup()"
+  input(type="email" name="signup.email" ng-model="signup.email" required)
+  input(type="password" name="signup.password" ng-model="signup.password" required)
+  button type="submit" Signup
+
+  div ng-if="signup.errors"
+    h2 | {{ signup.errors }}

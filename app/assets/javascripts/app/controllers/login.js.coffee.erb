@@ -1,0 +1,10 @@
+angular.module 'simpleNotes.controllers'
+  .controller 'LoginController', ($scope, $location) ->
+    $scope.signup = {}
+    $scope.login = {}
+
+    $scope.submitSignup = ->
+      console.log("signup")
+
+    $scope.submitLogin = ->
+      console.log("login")
