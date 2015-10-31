@@ -1,4 +1,4 @@
-angular.module('simpleNotes', [ 'ngRoute', 'simpleNotes.controllers', 'simpleNotes.services'])
+angular.module('simpleNotes', [ 'ngRoute', 'ngCookies', 'simpleNotes.controllers', 'simpleNotes.services'])
   .config(($routeProvider, $locationProvider) ->
     $routeProvider
       .when('/page/:id',

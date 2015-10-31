@@ -11,3 +11,35 @@ angular.module('simpleNotes.services', [])
           title: 'Rails'
         }
       ]
+  .service 'UserService', ($q, $cookieStore) ->
+    user = null
+    service = this
+
+    login: (email) ->
+      d = $q.defer()
+
+      user =
+        email: email
+        id: 1
+      service._user = user
+      $cookieStore.put('user', user)
+      d.resolve(user)
+      d.promise
+
+    logout: ->
+      d = $q.defer()
+      service._user = null
+      $cookieStore.remove('user')
+      d.resolve()
+      d.promise
+
+    currentUser: ->
+      d = $q.defer()
+      if service._user
+        d.resolve(service._user)
+      else if $cookieStore.get('user')
+        service._user = $cookieStore.get('user')
+        d.resolve(service._user)
+      else
+        d.resolve(null)
+      d.promise

@@ -1,10 +1,19 @@
 angular.module 'simpleNotes.controllers'
-  .controller 'LoginController', ($scope, $location) ->
+  .controller 'LoginController', ($scope, $location, UserService) ->
     $scope.signup = {}
     $scope.login = {}
 
+    UserService.currentUser().then (user) ->
+      $scope.user = user
+
     $scope.submitSignup = ->
-      console.log("signup")
+      UserService.login($scope.signup.email).then (user) ->
+        console.log(user)
+        $scope.user = user
+        $location.path("/")
 
     $scope.submitLogin = ->
-      console.log("login")
+      UserService.login($scope.login.email).then (user) ->
+        console.log(user)
+        $scope.user = user
+        $location.path("/")
