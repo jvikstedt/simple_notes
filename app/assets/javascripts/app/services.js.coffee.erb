@@ -1,16 +1,10 @@
 angular.module('simpleNotes.services', [])
-  .service 'PagesService', ->
-    pages: (name)->
-      [
-        {
-          id: '1'
-          title: 'Ruby'
-        }
-        {
-          id: '2'
-          title: 'Rails'
-        }
-      ]
+  .service 'PagesService', ($q, Page) ->
+    pages: ->
+      d = $q.defer()
+      Page.query().then (page) ->
+        d.resolve(page)
+      d.promise
   .service 'UserService', ($q, $cookieStore, $rootScope) ->
     user = null
     service = this

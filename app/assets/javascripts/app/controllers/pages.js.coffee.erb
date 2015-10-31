@@ -1,2 +1,3 @@
 angular.module('simpleNotes.controllers').controller 'PagesController', ($scope, PagesService) ->
-  $scope.pages = PagesService.pages()
+  PagesService.pages().then (pages) ->
+    $scope.pages = pages

@@ -1,0 +1,7 @@
+angular.module 'simpleNotes.resources', ['rails']
+  .factory 'Page', (railsResourceFactory) ->
+    railsResourceFactory(
+      url: '/pages',
+      name: 'page'
+    )
+
