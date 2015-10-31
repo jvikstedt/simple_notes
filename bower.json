@@ -20,6 +20,7 @@
     "angular": "~1.4.7",
     "angular-route": "~1.4.7",
     "angular-cookies": "~1.4.7",
+    "angularjs-rails-resource": "~2.0.0",
     "bootstrap": "~3.3.5",
     "underscore": "~1.8.3"
   }
