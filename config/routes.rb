@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'simple_notes#index'
 
   resources :pages, only: [:index, :show, :create, :update, :destroy]
