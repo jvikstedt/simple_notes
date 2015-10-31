@@ -1,0 +1,13 @@
+angular.module('simpleNotes.services', [])
+  .service 'PagesService', ->
+    pages: (name)->
+      [
+        {
+          id: '1'
+          title: 'Ruby'
+        }
+        {
+          id: '2'
+          title: 'Rails'
+        }
+      ]

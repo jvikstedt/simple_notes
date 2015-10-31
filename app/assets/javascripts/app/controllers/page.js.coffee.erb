@@ -1,3 +1,5 @@
-angular.module('simpleNotes.controllers')
-  .controller('PageController', ($scope) ->
-  )
+angular.module 'simpleNotes.controllers'
+  .controller 'PageController', ($scope, PagesService, $routeParams) ->
+    $scope.pages = PagesService.pages()
+    $scope.page = _.find $scope.pages, (v) ->
+      v.id == $routeParams.id

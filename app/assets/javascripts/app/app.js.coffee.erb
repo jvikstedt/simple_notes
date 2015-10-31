@@ -1,7 +1,7 @@
-angular.module('simpleNotes', [ 'ngRoute', 'simpleNotes.controllers'])
+angular.module('simpleNotes', [ 'ngRoute', 'simpleNotes.controllers', 'simpleNotes.services'])
   .config(($routeProvider, $locationProvider) ->
     $routeProvider
-      .when('/page/:page_id',
+      .when('/page/:id',
         controller: 'PageController'
         templateUrl: '<%= asset_path("page") %>')
       .when('/',
