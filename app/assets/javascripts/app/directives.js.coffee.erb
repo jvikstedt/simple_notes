@@ -1,0 +1,14 @@
+angular.module 'simpleNotes.directives', []
+  .directive 'userPanel', ->
+    templateUrl: '<%= asset_path("user_panel") %>'
+    controller: ($scope, UserService) ->
+      UserService.currentUser().then (user) ->
+        $scope.currentUser = user
+
+      $scope.$on 'user:set', (evt, currentUser) ->
+        $scope.currentUser = currentUser
+
+      $scope.logout = ->
+        UserService.logout().then ->
+          $scope.currentUser = null
+
