@@ -1,0 +1,8 @@
+h1 New page
+form name="page_form" role="form" ng-submit="create()"
+  input(type="text" name="page.title" ng-model="page.title" required)
+  input(type="text" name="page.body" ng-model="page.body")
+  button type="submit" Login
+
+  div ng-if="login.errors"
+    h2 | {{ login.errors }}

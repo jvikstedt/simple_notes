@@ -1,0 +1,7 @@
+angular.module 'simpleNotes.controllers'
+  .controller 'NewPageController', ($scope, PagesService) ->
+    $scope.page = {}
+
+    $scope.create = ->
+      PagesService.create($scope.page).then (page) ->
+        console.log(page.title)

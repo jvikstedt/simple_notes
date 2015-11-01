@@ -4,15 +4,15 @@ angular.module('simpleNotes', [ 'ngRoute', 'ngCookies', 'simpleNotes.controllers
       .when('/pages/new',
         controller: 'NewPageController',
         templateUrl: '<%= asset_path("pages/new") %>')
-      .when('/page/:id',
+      .when('/pages/:id',
         controller: 'PageController'
         templateUrl: '<%= asset_path("pages/page") %>')
-      .when('/login',
-        controller: 'LoginController',
-        templateUrl: '<%= asset_path("login") %>')
       .when('/',
         controller: 'PagesController'
         templateUrl: '<%= asset_path("pages/pages") %>')
+      .when('/login',
+        controller: 'LoginController',
+        templateUrl: '<%= asset_path("login") %>')
       .otherwise redirectTo: '/'
     $locationProvider.html5Mode {enabled: true, requireBase: false}
   )

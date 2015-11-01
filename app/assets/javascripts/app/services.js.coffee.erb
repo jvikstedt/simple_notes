@@ -5,6 +5,12 @@ angular.module('simpleNotes.services', [])
       Page.query().then (page) ->
         d.resolve(page)
       d.promise
+
+    create: (page) ->
+      d = $q.defer()
+      new Page(page).create().then (page) ->
+        d.resolve(page)
+      d.promise
   .service 'UserService', ($q, $cookieStore, $rootScope) ->
     user = null
     service = this
