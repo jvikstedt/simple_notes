@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'simple_notes#index'
 
-  resources :pages, only: [:index, :show, :create, :update, :destroy]
+  namespace :api do
+    namespace :v1 do
+      resources :pages, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
